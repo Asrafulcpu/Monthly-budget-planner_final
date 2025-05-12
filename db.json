@@ -1,0 +1,59 @@
+{
+  "transactions": [],
+  "categories": [
+    {
+      "name": "Food & Groceries",
+      "icon": "utensils",
+      "budget": 600,
+      "spent": 0
+    },
+    {
+      "name": "Housing",
+      "icon": "home",
+      "budget": 1200,
+      "spent": 0
+    },
+    {
+      "name": "Transportation",
+      "icon": "car",
+      "budget": 300,
+      "spent": 0
+    },
+    {
+      "name": "Utilities",
+      "icon": "bolt",
+      "budget": 250,
+      "spent": 0
+    },
+    {
+      "name": "Shopping",
+      "icon": "shopping-cart",
+      "budget": 200,
+      "spent": 0
+    },
+    {
+      "name": "Entertainment",
+      "icon": "glass-cheers",
+      "budget": 150,
+      "spent": 0
+    },
+    {
+      "name": "new",
+      "icon": "shopping-cart",
+      "budget": 30,
+      "spent": 0
+    },
+    {
+      "name": "new",
+      "icon": "glass-cheers",
+      "budget": 20,
+      "spent": 0
+    },
+    {
+      "name": "new",
+      "icon": "utensils",
+      "budget": 20,
+      "spent": 0
+    }
+  ]
+}
