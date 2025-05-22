@@ -184,10 +184,19 @@
     "yallist": "^4.0.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Asrafulcpu/Monthly-budget-planner_final.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Asrafulcpu/Monthly-budget-planner_final/issues"
+  },
+  "homepage": "https://github.com/Asrafulcpu/Monthly-budget-planner_final#readme",
   "description": ""
 }

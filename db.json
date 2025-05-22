@@ -1,5 +1,14 @@
 {
-  "transactions": [],
+  "transactions": [
+    {
+      "id": 1747912332245,
+      "date": "2025-05-22",
+      "description": "good",
+      "type": "expense",
+      "category": "Housing",
+      "amount": 500
+    }
+  ],
   "categories": [
     {
       "name": "Food & Groceries",
@@ -11,7 +20,7 @@
       "name": "Housing",
       "icon": "home",
       "budget": 1200,
-      "spent": 0
+      "spent": 500
     },
     {
       "name": "Transportation",
@@ -29,30 +38,6 @@
       "name": "Shopping",
       "icon": "shopping-cart",
       "budget": 200,
-      "spent": 0
-    },
-    {
-      "name": "Entertainment",
-      "icon": "glass-cheers",
-      "budget": 150,
-      "spent": 0
-    },
-    {
-      "name": "new",
-      "icon": "shopping-cart",
-      "budget": 30,
-      "spent": 0
-    },
-    {
-      "name": "new",
-      "icon": "glass-cheers",
-      "budget": 20,
-      "spent": 0
-    },
-    {
-      "name": "new",
-      "icon": "utensils",
-      "budget": 20,
       "spent": 0
     }
   ]

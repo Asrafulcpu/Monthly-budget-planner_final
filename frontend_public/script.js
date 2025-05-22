@@ -172,7 +172,13 @@ const budgetApp = {
               <small>$${category.spent.toFixed(2)} / $${category.budget.toFixed(2)}</small>
             </div>
           </div>
-          <div class="category-amount">${percentage}%</div>
+          <div class="category-amount">
+  ${percentage}%
+  <button class="delete-category-btn" title="Delete Category" onclick="budgetApp.deleteCategory('${category.name}')">
+    <i class="fas fa-trash"></i>
+  </button>
+</div>
+
         </div>
       `;
     });
@@ -424,6 +430,39 @@ const budgetApp = {
       btnText.textContent = originalText;
     }
   },
+deleteCategory: function(categoryName) {
+  if (!confirm(`Are you sure you want to delete the category "${categoryName}"?`)) return;
+
+  this.categories = this.categories.filter(c => c.name !== categoryName);
+
+  // Optional: Also remove matching transactions
+  this.transactions = this.transactions.filter(t => t.category !== categoryName);
+
+  // Save updated categories and transactions
+  const updatedDB = {
+    transactions: this.transactions,
+    categories: this.categories
+  };
+
+  fetch('/api/update-db', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify(updatedDB)
+  })
+  .then(response => {
+    if (!response.ok) throw new Error('Failed to update database');
+    this.loadCategories();
+    this.loadTransactions();
+    this.updateSummary();
+    this.updateCharts();
+  })
+  .catch(error => {
+    console.error('Error deleting category:', error);
+    this.showError('Failed to delete category. Please try again.');
+  });
+},
 
   showError: function(message, formId = null) {
     if (formId) {

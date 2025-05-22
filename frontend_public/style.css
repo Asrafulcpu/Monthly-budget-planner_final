@@ -26,12 +26,18 @@ body {
   color: #333;
 }
 
+/* ======================
+   LAYOUT & CONTAINERS
+   ====================== */
 .container {
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 }
 
+/* ======================
+   HEADER & NAVIGATION
+   ====================== */
 header {
   background-color: var(--primary);
   color: white;
@@ -74,6 +80,9 @@ nav ul li a:hover {
   color: #ffd700;
 }
 
+/* ======================
+   DASHBOARD COMPONENTS
+   ====================== */
 .dashboard {
   padding: 40px 0;
 }
@@ -96,6 +105,11 @@ nav ul li a:hover {
   font-size: 20px;
   cursor: pointer;
   padding: 5px 10px;
+  transition: color 0.3s;
+}
+
+.month-selector button:hover {
+  color: var(--primary);
 }
 
 .month-selector h2 {
@@ -103,6 +117,9 @@ nav ul li a:hover {
   font-size: 24px;
 }
 
+/* ======================
+   CARDS & SUMMARY
+   ====================== */
 .summary-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -115,6 +132,12 @@ nav ul li a:hover {
   border-radius: 8px;
   padding: 20px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
 .card-header {
@@ -157,6 +180,7 @@ nav ul li a:hover {
 .progress {
   height: 100%;
   border-radius: 4px;
+  transition: width 0.5s ease;
 }
 
 .income .progress {
@@ -167,6 +191,9 @@ nav ul li a:hover {
   background-color: var(--danger);
 }
 
+/* ======================
+   TRANSACTIONS TABLE
+   ====================== */
 .transactions {
   margin-bottom: 40px;
 }
@@ -199,6 +226,20 @@ nav ul li a:hover {
 
 .btn-primary:hover {
   background-color: var(--secondary);
+}
+
+.delete-btn {
+  background-color: var(--danger);
+  color: white;
+  padding: 6px 12px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.delete-btn:hover {
+  background-color: #c82333;
 }
 
 .transaction-table {
@@ -263,6 +304,9 @@ nav ul li a:hover {
   color: var(--primary);
 }
 
+/* ======================
+   BUDGET CATEGORIES
+   ====================== */
 .budget-categories {
   margin-bottom: 40px;
 }
@@ -281,6 +325,11 @@ nav ul li a:hover {
   background-color: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  transition: transform 0.3s;
+}
+
+.category-card:hover {
+  transform: translateY(-3px);
 }
 
 .category-info {
@@ -308,6 +357,23 @@ nav ul li a:hover {
   font-weight: 700;
 }
 
+.delete-category-btn {
+  background: none;
+  border: none;
+  margin-left: 8px;
+  color: #dc3545;
+  cursor: pointer;
+  font-size: 14px;
+  transition: color 0.3s;
+}
+
+.delete-category-btn:hover {
+  color: #a71d2a;
+}
+
+/* ======================
+   CHARTS & VISUALIZATION
+   ====================== */
 .charts {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -339,6 +405,9 @@ nav ul li a:hover {
   height: 300px;
 }
 
+/* ======================
+   FOOTER
+   ====================== */
 footer {
   background-color: var(--dark);
   color: white;
@@ -388,57 +457,34 @@ footer {
   color: #adb5bd;
 }
 
-@media (max-width: 768px) {
-  .header-content {
-    flex-direction: column;
-  }
-  nav ul {
-    margin-top: 15px;
-  }
-  nav ul li {
-    margin-left: 10px;
-    margin-right: 10px;
-  }
-  .dashboard-header {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .month-selector {
-    margin-bottom: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .transaction-table {
-    display: block;
-    overflow-x: auto;
-  }
-  .footer-links {
-    flex-direction: column;
-  }
-  .footer-links a {
-    margin: 5px 0;
-  }
-}
-
+/* ======================
+   MODALS & FORMS
+   ====================== */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000;
   left: 0;
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.5);
 }
 
 .modal-content {
   background-color: #fefefe;
-  margin: 15% auto;
-  padding: 20px;
+  margin: 10% auto;
+  padding: 25px;
   border-radius: 8px;
-  width: 80%;
+  width: 90%;
   max-width: 500px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 .close {
@@ -447,6 +493,7 @@ footer {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
+  transition: color 0.3s;
 }
 
 .close:hover {
@@ -460,12 +507,116 @@ footer {
 .form-group label {
   display: block;
   margin-bottom: 5px;
+  font-weight: 500;
 }
 
 .form-group input,
 .form-group select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ddd;
   border-radius: 4px;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: var(--primary);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(74, 111, 165, 0.2);
+}
+
+.input-error {
+  border-color: var(--danger) !important;
+}
+
+.error-message {
+  color: var(--danger);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: none;
+}
+
+/* ======================
+   UTILITY CLASSES
+   ====================== */
+.loading-spinner {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 40px 20px;
+  color: #6c757d;
+}
+
+.empty-state i {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #dee2e6;
+}
+
+/* ======================
+   RESPONSIVE DESIGN
+   ====================== */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+  }
+  
+  nav ul {
+    margin-top: 15px;
+  }
+  
+  nav ul li {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+  
+  .dashboard-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .month-selector {
+    margin-bottom: 15px;
+  }
+  
+  .charts {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 480px) {
+  .transaction-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .footer-links {
+    flex-direction: column;
+  }
+  
+  .footer-links a {
+    margin: 5px 0;
+  }
+  
+  .modal-content {
+    margin: 20px auto;
+    padding: 15px;
+    width: 95%;
+  }
 }

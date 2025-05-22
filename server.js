@@ -83,6 +83,18 @@ app.post('/api/categories', (req, res) => {
     writeDB(db);
     res.status(201).json(category);
 });
+// Overwrite the entire database (for deleteCategory)
+app.post('/api/update-db', (req, res) => {
+  console.log('Incoming update:', req.body); // log incoming payload
+  try {
+    writeDB(req.body);
+    res.status(200).json({ message: 'Database updated successfully' });
+  } catch (err) {
+    console.error('Error writing to DB:', err);
+    res.status(500).json({ error: 'Failed to update database' });
+  }
+});
+
 
 // Serve the main HTML file
 app.get('*', (req, res) => {
